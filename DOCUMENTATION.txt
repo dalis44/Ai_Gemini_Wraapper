@@ -1,0 +1,27 @@
+P9.
+
+Schema vizuală: fluxul complet
+USER
+ ↓  (trimite prompt / întrebare)
+AI (LLM) — system prompt
+ ↓
+Analizează întrebarea + verifică funcțiile disponibile
+ ↓
+Decizie:
+ ├── Dacă vrea să apeleze o funcție:
+ │      └─> Creaază un "function call" cu nume + argumente
+ │
+ └── Dacă nu folosește funcții:
+        └─> Produce text direct
+ ↓
+CODUL TĂU
+ ├── Dacă există function_calls:
+ │      └─> Rulează funcția reală cu argumentele date de AI
+ │           (ex: get_files_info({'directory': '.'}))
+ │      └─> Returnează rezultatul la AI / user
+ │
+ └── Dacă nu există function_calls:
+        └─> Trimite textul AI-ului direct la user
+ ↓
+USER
+ (primesc răspunsul final: fie text, fie rezultat funcție)
