@@ -78,19 +78,6 @@ def generate_content(client, messages, verbose):
     if not response.function_calls:
         return response.text
 
-    #print("\n Response:")
-    #print(response.text)
-    #print(response.function_calls)
-
-    # if not response.function_calls:
-    #     return response.text
-
-    # lr = [] 
-    # for cd in response.candidates:
-    #     lr.append(cd)
-    # for i in lr:
-    #     print("CONTENT : " ,i.content)
-
 
     function_responses = []
     for function_call_part in response.function_calls:
