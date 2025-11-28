@@ -128,8 +128,8 @@ def main():
 
 if __name__ == "__main__":
     # Dacă nu sunt argumente, folosește un prompt implicit
-    if len(sys.argv) == 1:
+    #if len(sys.argv) == 1:
         #sys.argv.extend(["what files are in the pkg directory? ", "--verbose"])
-        sys.argv.extend(["what is in test.py ? ", "--verbose"])
+        #sys.argv.extend(["what is in test.py ? ", "--verbose"])
     
     main() 
