@@ -1,5 +1,10 @@
-from google.genai import types
+#- Gemini sends a function call -> it appears in response.function_calls
+#- Your code detects it -> loops through each call
+#- call_function executes it -> returns result -> here: function_result = function_map[function_name](**args)
+#- Result is added to messages -> loop continues until final response
 
+
+from google.genai import types
 from functions.get_files_info import get_files_info, schema_get_files_info
 from functions.get_file_content import get_file_content, schema_get_file_content
 from functions.run_python_file import run_python_file, schema_run_python_file
@@ -53,3 +58,9 @@ def call_function(function_call_part, verbose=False):
             )
         ],
     )
+
+#Summary
+#- Gemini sends a function call -> it appears in response.function_calls
+#- This code detects it -> loops through each call
+#- call_function executes it -> returns result
+#- Result is added to messages -> loop continues until final response
